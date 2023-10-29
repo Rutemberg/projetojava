@@ -1,7 +1,7 @@
-package com.projetojava.dominio.service;
+package com.projetojava.service;
 
-import com.projetojava.dominio.model.Produto;
-import com.projetojava.dominio.repository.ProdutoRepository;
+import com.projetojava.model.Produto;
+import com.projetojava.repository.ProdutoRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

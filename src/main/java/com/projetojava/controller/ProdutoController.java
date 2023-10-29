@@ -1,9 +1,12 @@
-package com.projetojava.dominio.controller;
+package com.projetojava.controller;
 
-import com.projetojava.dominio.model.Produto;
-import com.projetojava.dominio.service.ProdutoService;
+
+import com.projetojava.model.Produto;
+import com.projetojava.service.ProdutoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,8 +24,8 @@ public class ProdutoController {
     }
 
     @GetMapping()
-    public List<Produto> listarProdutos() {
-        return produtoService.listarProdutos();
+    public ResponseEntity<List<Produto>> listarProdutos() {
+        return new ResponseEntity<>(produtoService.listarProdutos(), HttpStatus.OK);
     }
     
     @GetMapping("/{id}")
@@ -31,8 +34,8 @@ public class ProdutoController {
     }
 
     @PostMapping
-    public Produto salvarProduto(@RequestBody Produto produto) {
-        return produtoService.salvarProduto(produto);
+    public ResponseEntity<Produto> salvarProduto(@RequestBody Produto produto) {
+        return new ResponseEntity<>(produtoService.salvarProduto(produto), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
