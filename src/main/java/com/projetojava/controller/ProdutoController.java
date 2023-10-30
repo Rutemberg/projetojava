@@ -41,6 +41,24 @@ public class ProdutoController {
         return new ResponseEntity<>(produtoService.salvarProduto(produto), HttpStatus.CREATED);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> alterarProduto(@PathVariable Long id, @RequestBody Produto novoProduto)
+            throws Exception {
+        try {
+            Produto alterarProduto = produtoService.encontrarProdutoPorId(id);
+
+            alterarProduto.setNome(novoProduto.getNome());
+            alterarProduto.setPreco(novoProduto.getPreco());
+            alterarProduto.setQuantidade(novoProduto.getQuantidade());
+
+            produtoService.salvarProduto(alterarProduto);
+
+            return new ResponseEntity<>(alterarProduto, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
+
     @DeleteMapping("/{id}")
     public void excluirProduto(@PathVariable Long id) {
         produtoService.excluirProduto(id);
