@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "/produto")
@@ -28,7 +27,7 @@ public class ProdutoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> encontrarProdutoPorId(@PathVariable UUID id) throws Exception {
+    public ResponseEntity<Object> encontrarProdutoPorId(@PathVariable Long id) throws Exception {
         try {
             return new ResponseEntity<>(produtoService.encontrarProdutoPorId(id), HttpStatus.OK);
         } catch (Exception e) {
@@ -43,7 +42,7 @@ public class ProdutoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> alterarProduto(@PathVariable UUID id, @RequestBody Produto novoProduto)
+    public ResponseEntity<Object> alterarProduto(@PathVariable Long id, @RequestBody Produto novoProduto)
             throws Exception {
         try {
             Produto alterarProduto = produtoService.encontrarProdutoPorId(id);
@@ -62,7 +61,7 @@ public class ProdutoController {
     }
 
     @DeleteMapping("/{id}")
-    public void excluirProduto(@PathVariable UUID id) {
+    public void excluirProduto(@PathVariable Long id) {
         produtoService.excluirProduto(id);
     }
 }

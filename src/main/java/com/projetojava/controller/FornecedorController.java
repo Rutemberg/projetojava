@@ -1,7 +1,6 @@
 package com.projetojava.controller;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,7 +34,7 @@ public class FornecedorController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> econtrarFornecedorPorId(@PathVariable UUID id) throws Exception {
+    public ResponseEntity<Object> econtrarFornecedorPorId(@PathVariable Long id) throws Exception {
         try {
             return new ResponseEntity<>(fornecedorService.encontrarFornecedorPorId(id), HttpStatus.OK);
         } catch (Exception e) {
@@ -49,7 +48,7 @@ public class FornecedorController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> alterarFornecedor(@PathVariable UUID id, @RequestBody Fornecedor novoFornecedor)
+    public ResponseEntity<Object> alterarFornecedor(@PathVariable Long id, @RequestBody Fornecedor novoFornecedor)
             throws Exception {
         try {
             Fornecedor alterarFornecedor = fornecedorService.encontrarFornecedorPorId(id);
@@ -67,7 +66,7 @@ public class FornecedorController {
     }
 
     @DeleteMapping("/{id}")
-    public void excluirFornecedor(@PathVariable UUID id) {
+    public void excluirFornecedor(@PathVariable Long id) {
         fornecedorService.excluirFornecedor(id);
     }
 

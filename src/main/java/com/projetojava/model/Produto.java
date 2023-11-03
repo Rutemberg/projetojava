@@ -1,6 +1,5 @@
 package com.projetojava.model;
 
-import java.util.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,9 +22,9 @@ import lombok.Setter;
 @EqualsAndHashCode(of="id")
 public class Produto {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "uuid")
-    private UUID id;
+    private Long id;
     private String nome;
     private double preco;
     private int quantidade;    
