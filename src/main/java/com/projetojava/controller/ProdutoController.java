@@ -51,6 +51,7 @@ public class ProdutoController {
             alterarProduto.setNome(novoProduto.getNome());
             alterarProduto.setPreco(novoProduto.getPreco());
             alterarProduto.setQuantidade(novoProduto.getQuantidade());
+            alterarProduto.setCodigobarra(novoProduto.getCodigobarra());
 
             produtoService.salvarProduto(alterarProduto);
 

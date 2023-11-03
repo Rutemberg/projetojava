@@ -28,6 +28,8 @@ public class Produto {
     private UUID id;
     private String nome;
     private double preco;
-    private int quantidade;
+    private int quantidade;    
+    private String codigobarra;
+
 
 }
