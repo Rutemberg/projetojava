@@ -1,5 +1,7 @@
 package com.projetojava.model;
 
+import java.util.UUID;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,8 +22,8 @@ import lombok.Setter;
 @Table(name = "enderecos")
 public class Endereco {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
     private String rua;
     private String cidade;
     private String estado;

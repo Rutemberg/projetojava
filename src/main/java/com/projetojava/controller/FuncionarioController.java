@@ -1,6 +1,7 @@
 package com.projetojava.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,7 +35,7 @@ public class FuncionarioController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> encontrarFuncionarioPorId(@PathVariable Long id) throws Exception {
+    public ResponseEntity<Object> encontrarFuncionarioPorId(@PathVariable UUID id) throws Exception {
         try {
             return new ResponseEntity<>(funcionarioService.encontrarFuncionarioPorId(id), HttpStatus.OK);
         } catch (Exception e) {
@@ -48,7 +49,7 @@ public class FuncionarioController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> alterarFuncionario(@PathVariable Long id, @RequestBody Funcionario novoFuncionario)
+    public ResponseEntity<Object> alterarFuncionario(@PathVariable UUID id, @RequestBody Funcionario novoFuncionario)
             throws Exception {
         try {
             Funcionario alterarFuncionario = funcionarioService.encontrarFuncionarioPorId(id);
@@ -68,7 +69,7 @@ public class FuncionarioController {
     }
 
     @DeleteMapping("/{id}")
-    public void excluirFuncionario(@PathVariable Long id) {
+    public void excluirFuncionario(@PathVariable UUID id) {
         funcionarioService.excluirFuncionario(id);
     }
 

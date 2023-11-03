@@ -1,6 +1,7 @@
 package com.projetojava.model;
 
 import java.util.List;
+import java.util.UUID;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -25,8 +26,8 @@ import lombok.Setter;
 @Table(name = "fornecedores")
 public class Fornecedor {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
     private String nome;
     private String telefone;
     private String cnpj;

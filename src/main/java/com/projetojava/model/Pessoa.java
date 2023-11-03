@@ -1,5 +1,7 @@
 package com.projetojava.model;
 
+import java.util.UUID;
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -18,8 +20,8 @@ import lombok.Setter;
 @EqualsAndHashCode(of = "id")
 public class Pessoa {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
     private String nome;
     private String cpf;    
     private String telefone;

@@ -1,6 +1,7 @@
 package com.projetojava.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,7 @@ public class FuncionarioService {
         return funcionarioRepository.findAll();
     }
 
-    public Funcionario encontrarFuncionarioPorId(Long id) throws Exception {
+    public Funcionario encontrarFuncionarioPorId(UUID id) throws Exception {
         return funcionarioRepository.findById(id).orElseThrow(() -> new Exception("Funcionario nao encontrado"));
     }
 
@@ -29,7 +30,7 @@ public class FuncionarioService {
         return funcionarioRepository.save(funcionario);
     }
 
-    public void excluirFuncionario(Long id) {
+    public void excluirFuncionario(UUID id) {
         funcionarioRepository.deleteById(id);
     }
 }
