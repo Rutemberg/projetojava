@@ -1,9 +1,14 @@
 package com.projetojava.model;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -26,4 +31,7 @@ public class Fornecedor {
     private String telefone;
     private String cnpj;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fornecedor_id", referencedColumnName = "id")
+    private List<Produto> produtos;
 }

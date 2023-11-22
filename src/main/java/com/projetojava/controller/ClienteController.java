@@ -58,6 +58,7 @@ public class ClienteController {
             alterarCliente.setTelefone(novoCliente.getTelefone());
             alterarCliente.setEmail(novoCliente.getEmail());
             alterarCliente.setPontosfidelidade(novoCliente.getPontosfidelidade());
+            alterarCliente.setEnderecos(novoCliente.getEnderecos());
 
             clienteService.salvarCliente(alterarCliente);
 

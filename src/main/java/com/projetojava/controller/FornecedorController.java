@@ -56,6 +56,7 @@ public class FornecedorController {
             alterarFornecedor.setNome(novoFornecedor.getNome());
             alterarFornecedor.setCnpj(novoFornecedor.getCnpj());
             alterarFornecedor.setTelefone(novoFornecedor.getTelefone());
+            alterarFornecedor.setProdutos(novoFornecedor.getProdutos());
 
             fornecedorService.salvarFornecedor(alterarFornecedor);
 

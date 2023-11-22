@@ -59,6 +59,7 @@ public class FuncionarioController {
             alterarFuncionario.setCargo(novoFuncionario.getCargo());
             alterarFuncionario.setMatricula(novoFuncionario.getMatricula());
             alterarFuncionario.setSalario(novoFuncionario.getSalario());
+            alterarFuncionario.setEnderecos(novoFuncionario.getEnderecos());
 
             funcionarioService.salvarFuncionario(alterarFuncionario);
 
