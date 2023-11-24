@@ -36,6 +36,12 @@ public class ProdutoController {
 
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<List<Produto>> encontrarProdutoPorNome(@RequestParam String nome) {
+        return new ResponseEntity<>(produtoService.encontrarProdutoPorNome(nome), HttpStatus.OK);
+
+    }
+
     @PostMapping
     public ResponseEntity<Produto> salvarProduto(@RequestBody Produto produto) {
         return new ResponseEntity<>(produtoService.salvarProduto(produto), HttpStatus.CREATED);

@@ -23,7 +23,11 @@ public class ProdutoService {
     }
 
     public Produto encontrarProdutoPorId(Long id) throws Exception {
-        return produtoRepository.findById(id).orElseThrow(()-> new Exception("Produto nao encontrado")); 
+        return produtoRepository.findById(id).orElseThrow(() -> new Exception("Produto nao encontrado"));
+    }
+
+    public List<Produto> encontrarProdutoPorNome(String nome){
+        return produtoRepository.findByNomeContains(nome);
     }
 
     public Produto salvarProduto(Produto produto) {
