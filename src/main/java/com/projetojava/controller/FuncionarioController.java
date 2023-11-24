@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.projetojava.model.Funcionario;
@@ -40,6 +41,12 @@ public class FuncionarioController {
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Funcionario>> encontrarFuncionarioPorNome(@RequestParam String nome) {
+        return new ResponseEntity<>(funcionarioService.encontrarFuncionarioPorNome(nome), HttpStatus.OK);
+
     }
 
     @PostMapping

@@ -25,6 +25,10 @@ public class ClienteService {
         return clienterepository.findById(id).orElseThrow(() -> new Exception("Cliente nao encontrado"));
     }
 
+    public List<Cliente> encontrarClientePorNome(String nome) {
+        return clienterepository.findByNomeContains(nome);
+    }
+
     public Cliente salvarCliente(Cliente cliente) {
         return clienterepository.save(cliente);
     }

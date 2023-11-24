@@ -25,6 +25,10 @@ public class FuncionarioService {
         return funcionarioRepository.findById(id).orElseThrow(() -> new Exception("Funcionario nao encontrado"));
     }
 
+    public List<Funcionario> encontrarFuncionarioPorNome(String nome) {
+        return funcionarioRepository.findByNomeContains(nome);
+    }
+
     public Funcionario salvarFuncionario(Funcionario funcionario) {
         return funcionarioRepository.save(funcionario);
     }

@@ -25,6 +25,10 @@ public class FornecedorService {
         return fornecedorRepository.findById(id).orElseThrow(() -> new Exception("Fornecedor nao encontrado"));
     }
 
+    public List<Fornecedor> encontrarFornecedorPorNome(String nome) {
+        return fornecedorRepository.findByNomeContains(nome);
+    }
+
     public Fornecedor salvarFornecedor(Fornecedor fornecedor) {
         return fornecedorRepository.save(fornecedor);
     }
